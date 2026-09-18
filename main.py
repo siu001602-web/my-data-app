@@ -358,17 +358,3 @@ st.dataframe(
         ),
     },
 )
-```
-
-```text
-streamlit
-requests
-```
-
-Streamlit Cloud에서는 **Settings → Secrets**에 다음처럼 등록하면 됩니다. 실제 키 값은 코드나 `requirements.txt`에 넣지 않습니다.
-
-```toml
-KOBIS_KEY = "여기에_발급받은_KOBIS_인증키"
-```
-
-핵심적으로 `@st.cache_data(ttl=3600)` 때문에 **같은 날짜의 결과는 약 1시간 동안 재사용**되고, `ZoneInfo("Asia/Seoul")`을 사용해서 배포 서버가 어느 시간대에 있든 **한국 시간 기준 어제**를 조회합니다.
